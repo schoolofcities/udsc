@@ -26,12 +26,11 @@
 - Pandas 101 (loading, showing table and subsets, filtering, aggregating, summarizing, descriptive stats, etc.)
 - Spatial data in Python using GeoPandas (loading data, viewing data, converting non-spatial to spatial data
 - Processing spatial data in Python (geocoding, buffers, dissolve, spatial joins, overlays, etc.)
+- Exploratory data visualization in Python (with Seaborn)
+
+
+## Day 3 - Statistics and Web Mapping
 - Introductory statistics (descriptive statistics, correlations, linear regression, hypothesis testing)
-
-
-## Day 3 - Exploratory Data Analysis and Web Mapping
-
-- Exploratory data analysis using statistics and data visualization in Python (with Seaborn)
 - Introduction to clustering (k-means, DBSCAN) and dimensionality reduction (PCA)
 - Intro to web-development (HTML, CSS, JS)
 - Making a simple web-map (with Maplibre)
