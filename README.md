@@ -1,5 +1,13 @@
 # udsc-2026
 
+## Prerequisite - Introduction to Python
+
+ - Python 101 (data types, conditionals, loops, functions, loading/saving files, etc.)
+ - Writing and executing a simple Python script
+ - Finding and working with libraries
+ - Review [Programming with Python and computational notebooks](https://schoolofcities.github.io/urban-data-storytelling/urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.html) and practice in ["Learn the Basics"](https://www.learnpython.org/)
+
+
 ## Day 1 - Urban Data, Maps, Visualization, and GIS
 
 - Intro to urban data analytics, research, and storytelling.
@@ -14,21 +22,16 @@
 
 ## Day 2 - Urban Data Analysis in Python
 
-- Introduction to Python (pre-req.)
-    - Writing and executing a simple Python script
-    - Python 101 (data types, conditionals, loops, functions, loading/saving files, etc.)
-    - Finding and working with libraries
-
 - Jupyter notebook intro (Python + Markdown). Installing packages locally with pip / conda
 - Pandas 101 (loading, showing table and subsets, filtering, aggregating, summarizing, descriptive stats, etc.)
-- Exploratory data analysis, statistics, and data visualization in Python (with Seaborn)
 - Spatial data in Python using GeoPandas (loading data, viewing data, converting non-spatial to spatial data
 - Processing spatial data in Python (geocoding, buffers, dissolve, spatial joins, overlays, etc.)
+- Introductory statistics (descriptive statistics, correlations, linear regression, hypothesis testing)
 
-## Day 3 - Web Maps and (Spatial) Relational Databases
 
-- Relational databases, SQL, postgres
-- Spatial databases, PostGIS
-- Connecting to databases in Python
+## Day 3 - Exploratory Data Analysis and Web Mapping
+
+- Exploratory data analysis using statistics and data visualization in Python (with Seaborn)
+- Introduction to clustering (k-means, DBSCAN) and dimensionality reduction (PCA)
 - Intro to web-development (HTML, CSS, JS)
 - Making a simple web-map (with Maplibre)
