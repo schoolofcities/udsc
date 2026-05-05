@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8" />
+
+	<title>MapLibre Example</title>
+
+	<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" />
+
+	<style>
+
+		html, body, #map {
+			margin: 0;
+			height: 100%;
+			width: 100%;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="map"></div>
+
+	<script>
+
+		const map = new maplibregl.Map({
+
+			container: 'map',
+			center: [-79.3832, 43.6532],
+			zoom: 12,
+			style: 'map-style.json',
+
+		});
+
+		
+		map.addControl(new maplibregl.NavigationControl());
+
+		
+	
+		// map.on('load', () => {
+
+		// 	map.addSource('transit-lines', {
+		// 		type: 'geojson',
+		// 		data: 'current-lines.geo.json',
+		// 	});
+
+		// 	map.addSource('transit-stations', {
+		// 		type: 'geojson',
+		// 		data: 'current-stations.geo.json',
+		// 	});
+
+		// 	map.addLayer({
+		// 		id: 'transit-lines',
+		// 		type: 'line',
+		// 		source: 'transit-lines',
+		// 		layout: { 'line-cap': 'round', 'line-join': 'round' },
+		// 		paint: { 'line-color': '#000000', 'line-width': 2 },
+		// 	});
+
+		// 	map.addLayer({
+		// 		id: 'transit-stations',
+		// 		type: 'circle',
+		// 		source: 'transit-stations',
+		// 		paint: {
+		// 			'circle-radius': 4,
+		// 			'circle-color': '#000000',
+		// 			'circle-stroke-width': 1.5,
+		// 			'circle-stroke-color': '#ffffff',
+		// 		},
+		// 	});
+
+		// });
+
+
+	</script>
+
+</body>
+
+</html>
