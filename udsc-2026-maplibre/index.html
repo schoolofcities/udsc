@@ -5,7 +5,7 @@
 
 	<meta charset="UTF-8" />
 
-	<title>MapLibre Example</title>
+	<title>Hello!</title>
 
 	<script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" />
@@ -24,7 +24,11 @@
 
 <body>
 
+	<!-- <h1>Hello!</h1> -->
+
 	<div id="map"></div>
+
+
 
 	<script>
 
@@ -33,49 +37,116 @@
 			container: 'map',
 			center: [-79.3832, 43.6532],
 			zoom: 12,
-			style: 'map-style.json',
-
+			bearing: 0,
+			style: 'map-style.json'
+			
 		});
 
 		
 		map.addControl(new maplibregl.NavigationControl());
 
 
-		
-	
-		// map.on('load', () => {
+		map.on('load', () => {
 
-		// 	map.addSource('transit-lines', {
-		// 		type: 'geojson',
-		// 		data: 'current-lines.geo.json',
-		// 	});
+			map.addSource('transit-lines', {
+				type: 'geojson',
+				data: 'current-lines.geo.json',
+			});
 
-		// 	map.addSource('transit-stations', {
-		// 		type: 'geojson',
-		// 		data: 'current-stations.geo.json',
-		// 	});
+			map.addSource('transit-stations', {
+				type: 'geojson',
+				data: 'current-stations.geo.json',
+			});
 
-		// 	map.addLayer({
-		// 		id: 'transit-lines',
-		// 		type: 'line',
-		// 		source: 'transit-lines',
-		// 		layout: { 'line-cap': 'round', 'line-join': 'round' },
-		// 		paint: { 'line-color': '#000000', 'line-width': 2 },
-		// 	});
+			map.addSource('wards', {
+				type: 'geojson',
+				data: 'city-wards.geojson',
+			});
 
-		// 	map.addLayer({
-		// 		id: 'transit-stations',
-		// 		type: 'circle',
-		// 		source: 'transit-stations',
-		// 		paint: {
-		// 			'circle-radius': 4,
-		// 			'circle-color': '#000000',
-		// 			'circle-stroke-width': 1.5,
-		// 			'circle-stroke-color': '#ffffff',
-		// 		},
-		// 	});
+			// map.addLayer({
+			// 	id: 'transit-lines',
+			// 	type: 'line',
+			// 	source: 'transit-lines',
+			// 	layout: { 'line-cap': 'round', 'line-join': 'round' },
+			// 	paint: { 'line-color': '#000000', 'line-width': 2 },
+			// });
 
-		// });
+
+			 map.addLayer(
+				{
+				id: "transit-lines",
+				type: "line",
+				source: "transit-lines",
+				paint: {
+					"line-color": "#000000",
+					"line-width": [
+						"match",
+						["get", "NAME"],
+						["Line 1: Yonge-University Subway", "Line 2: Bloor-Danforth Subway", "Line 4: Sheppard Subway"],
+						2,
+						0.5,
+					],
+				},
+				}
+			);
+
+			map.addLayer({
+				id: 'transit-stations',
+				type: 'circle',
+				source: 'transit-stations',
+				paint: {
+					'circle-radius': 4,
+					'circle-color': '#000000',
+					'circle-stroke-width': 1.5,
+					'circle-stroke-color': '#ffffff',
+				},
+			});
+
+
+			// map.addLayer({
+			// 	id: 'wards',
+			// 	type: 'fill',
+			// 	source: 'wards',
+			// 	paint: { 'fill-color': '#ffffff', 'fill-opacity': 0.5},
+			// });
+
+			map.addLayer({
+				id: 'wards-lines',
+				type: 'line',
+				source: 'wards',
+				paint: { 'line-color': '#000000', 'line-width': 1},
+			});
+
+
+
+
+			const stationLabelPaint = {
+				"text-color": "#000000",
+				"text-halo-color": "white",
+				"text-halo-width": 1.5,
+			};
+
+			map.addLayer({
+				id: "transit-station-labels",
+				type: "symbol",
+				source: "transit-stations",
+				minzoom: 12.5,
+				layout: {
+					"text-field": ["get", "LOCATION_N"],
+					"text-font": ["Open Sans Bold"],
+					"text-size": 11,
+					"text-offset": [0, 0.5],
+					"text-anchor": "top",
+					"text-allow-overlap": false,
+					"symbol-sort-key": -1,
+				},
+				paint: stationLabelPaint,
+			});
+
+
+
+			
+		});
 
 
 	</script>
